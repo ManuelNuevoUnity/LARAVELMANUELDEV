@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #00aaff, #00ff88);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #005577;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #005577;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .total {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 15px;
+            background-color: #005577;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #007766;
+        }
+
+        .confirmacion {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+            border-radius: 5px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003344;
+            padding: 15px;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: #007766;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Proceso de Pago</h1>
+</header>
+<nav>
+    <a href="ofertas.html">Ofertas</a>
+    <a href="soporte.html">Soporte Técnico</a>
+    <a href="catalogo.blade.php">Inicio</a>
+    <a href="registro.php">Registrarse</a>
+    <a href="login.php">Iniciar Sesion</a>
+</nav>
+
+<div class="container">
+    <h2>Información de Pago</h2>
+    <form id="formulario-pago">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" required>
+
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" required>
+
+        <label for="telefono">Número de teléfono</label>
+        <input type="tel" id="telefono" required>
+
+        <label for="numero-tarjeta">Número de tarjeta</label>
+        <input type="number" id="numero-tarjeta" required>
+
+        <label for="cvv">CVV</label>
+        <input type="number" id="cvv" required>
+
+
+        <button type="submit">Pagar Ahora</button>
+    </form>
+
+    <div class="confirmacion" id="mensaje-confirmacion">
+        ¡Gracias por su compra! Se ha enviado una confirmación a su correo electrónico o número de teléfono.
+    </div>
+</div>
+
+<script>
+    const totalAPagar = 1600 ;  
+    document.getElementById('total-pagar').textContent = totalAPagar;
+
+    document.getElementById('formulario-pago').addEventListener('submit', function(event) {
+        event.preventDefault();  
+
+        const nombre = document.getElementById('nombre').value;
+        const correo = document.getElementById('correo').value;
+        const telefono = document.getElementById('telefono').value;
+        const numeroTarjeta = document.getElementById('numero-tarjeta').value;
+        const cvv = document.getElementById('cvv').value;
+
+        setTimeout(() => {
+            if (numeroTarjeta.length >= 12 && cvv.length === 3) {
+                enviarConfirmacion(correo, telefono);
+                document.getElementById('mensaje-confirmacion').style.display = 'block';
+            } else {
+                alert("Número de tarjeta o CVV inválidos.");
+            }
+        }, 1000);
+    });
+
+    function enviarConfirmacion(correo, telefono) {
+        alert(`Confirmación enviada a: 
+        \nCorreo: ${correo}
+        \nTeléfono: ${telefono}`);
+    }
+</script>
+<nav>
+    <a href="ofertas.html">Ofertas</a>
+    <a href="soporte.html">Soporte Técnico</a>
+    <a href="catalogo.blade.php">Inicio</a>
+    <a href="registro.php">Registrarse</a>
+    <a href="login.php">Iniciar Sesion</a>
+</nav>
+
+</body>
+</html>

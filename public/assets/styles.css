@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+#catalogo {
+    margin-top: 20px;
+}
+
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.producto {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    width: 200px; 
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.precio {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.cta-button {
+    background-color: #28a745; 
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #218838; 
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px; 
+}
